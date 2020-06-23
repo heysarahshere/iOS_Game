@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Game" representedClassName="Game" syncable="YES" codeGenerationType="class">
+        <attribute name="datePlayed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gameNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="guesses" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numberOfPlayers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rounds" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="winningNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="winningPlayer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="turns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Turn" inverseName="game" inverseEntity="Turn"/>
+    </entity>
+    <entity name="Turn" representedClassName="Turn" syncable="YES" codeGenerationType="class">
+        <attribute name="correct" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="guess" optional="YES" attributeType="String"/>
+        <attribute name="hint" optional="YES" attributeType="String"/>
+        <attribute name="player" optional="YES" attributeType="String"/>
+        <attribute name="turnNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="turns" inverseEntity="Game"/>
+    </entity>
+    <elements>
+        <element name="Game" positionX="0" positionY="72" width="128" height="163"/>
+        <element name="Turn" positionX="-36" positionY="9" width="128" height="133"/>
+    </elements>
+</model>
